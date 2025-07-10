@@ -100,7 +100,7 @@ pipeline {
                 }
             }
             environment {
-                CI_ENVIRONMENT_URL = 'https://statuesque-otter-f06164.netlify.app/
+                CI_ENVIRONMENT_URL = 'https://statuesque-otter-f06164.netlify.app/'
             }
             steps {
                 sh '''
