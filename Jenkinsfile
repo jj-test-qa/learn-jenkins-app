@@ -38,6 +38,11 @@ pipeline {
                     npm test
                 '''
             }
+            post {
+                always{
+                    junit 'test-results/test.xml'
+                }
+            }
         }
     
         stage('E2E'){
@@ -54,6 +59,11 @@ pipeline {
                     sleep 10
                     npx playwright test
                 '''
+            }
+            post {
+                always{
+                    junit 'jest-results/junit.xml'
+                }
             }
         }
         
