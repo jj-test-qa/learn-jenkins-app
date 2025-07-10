@@ -11,7 +11,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    #echo "Test stage"
                     npm test
                 '''
             }
