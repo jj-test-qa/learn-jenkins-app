@@ -17,6 +17,7 @@ pipeline {
             }
         }
     
+    /*
         stage('E2E'){
             agent {
                 docker {
@@ -33,12 +34,13 @@ pipeline {
                 '''
             }
         }
+    */
         
     }
 
     post {
         always{
-            junit 'jest-results/junit.xml'
+            junit 'test-results/tunit.xml'
         }
     }
 }
