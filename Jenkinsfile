@@ -108,6 +108,14 @@ pipeline {
                     node_modules/.bin/netlify deploy --dir=build
                 '''
             }
+        }
+
+        stage('Approval Step'){
+            steps{
+                timeout(time: 15, unit: ‘MINUTES’) {
+                    input message: 'Ready to deploy to production?', ok: 'yes, I am sure I want to Deploy'
+                }
+            }
         }    
 
         stage('Prod E2E'){
