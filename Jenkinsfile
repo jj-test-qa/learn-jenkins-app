@@ -7,6 +7,7 @@ pipeline {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
+                    args '-u root:root'
                 }
             }
             steps {
@@ -38,7 +39,7 @@ pipeline {
     }
     post {
         always{
-            junit 'test-results/junit.xml'
+            junit 'jest-results/junit.xml'
         }
     }
 }
