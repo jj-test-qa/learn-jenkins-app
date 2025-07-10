@@ -68,7 +68,20 @@ pipeline {
             }
         }
     
-        
+        stage('Deploy'){
+            agent {
+                docker {
+                    imae 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                    npm install netlify-cli@20.1.1
+                    netlify --version
+                '''
+            }
+        }        
     }
 }
 
